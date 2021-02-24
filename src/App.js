@@ -25,7 +25,7 @@ function App() {
 
     
 // Tratativas de erros
-if(valueHourIn == '' || valueMinIn == '' || valueHourOut == '' || valueMinOut == ''){
+if(valueHourIn === '' || valueMinIn === '' || valueHourOut === '' || valueMinOut === ''){
   return alert('Todos os campos são obrigatórios!')
   
 }else if(valueHourIn > 24 || valueHourOut > 24){
