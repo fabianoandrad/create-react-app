@@ -1,57 +1,99 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import Header from "./components/Header";
+import api from "./services/api";
 import './App.css';
 
 function App() {
-  const [date, setDate] = useState(null);
+  const [calculateHours, setCalculateHours] = useState([]);
+
+  // Obtem os dados calculados do back-end
   useEffect(() => {
-    async function getDate() {
-      const res = await fetch('/api/date');
-      const newDate = await res.text();
-      setDate(newDate);
-    }
-    getDate();
+    api.get("projects").then((response) => {
+      setCalculateHours(response.data);
+      //console.log(response)
+    });
   }, []);
-  return (
-    <main>
-      <h1>Create React App + Go API</h1>
-      <h2>
-        Deployed with{' '}
-        <a
-          href="https://vercel.com/docs"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Vercel
-        </a>
-        !
-      </h2>
-      <p>
-        <a
-          href="https://github.com/vercel/vercel/tree/master/examples/create-react-app"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          This project
-        </a>{' '}
-        was bootstrapped with{' '}
-        <a href="https://facebook.github.io/create-react-app/">
-          Create React App
-        </a>{' '}
-        and contains three directories, <code>/public</code> for static assets,{' '}
-        <code>/src</code> for components and content, and <code>/api</code>{' '}
-        which contains a serverless <a href="https://golang.org/">Go</a>{' '}
-        function. See{' '}
-        <a href="/api/date">
-          <code>api/date</code> for the Date API with Go
-        </a>
-        .
-      </p>
-      <br />
-      <h2>The date according to Go is:</h2>
-      <p>{date ? date : 'Loading date...'}</p>
-    </main>
-  );
+  
+
+  async function handleAddHours() {
+
+    const valueHourIn = document.getElementById('hourIn').value
+    const valueMinIn = document.getElementById('minIn').value
+    const valueHourOut = document.getElementById('hourOut').value
+    const valueMinOut = document.getElementById('minOut').value
+
+    
+// Tratativas de erros
+if(valueHourIn == '' || valueMinIn == '' || valueHourOut == '' || valueMinOut == ''){
+  return alert('Todos os campos são obrigatórios!')
+  
+}else if(valueHourIn > 24 || valueHourOut > 24){
+  return alert('Hora de entrada ou saída não pode ser maior que 24hrs')
+
+}else if(valueHourIn < 0 || valueHourOut < 0){
+  return alert('Hora de entrada ou saída não pode ser menor que 00')
+
+}else if(valueMinIn < 0 || valueMinOut < 0){
+  return alert('Minuto de entrada ou saída não pode ser menor que 00')
+
 }
 
+    // Envia os dados para o back-end
+    const response = await api.post("projects", {
+      hourIn: valueHourIn,
+      minIn: valueMinIn,
+
+      hourOut: valueHourOut,
+      minOut: valueMinOut,
+    });
+
+    const project = response.data;
+
+    setCalculateHours([...calculateHours, project]);
+
+  }
+
+  async function handleReset(){
+    setCalculateHours([])
+    await api.post("projects", {del: true});
+  }
+
+  return (
+    <>
+      <Header title="Cálcular Horas" />
+
+     
+        <h4>Digite a Hora de entrada</h4>
+        <label> Hora <input id="hourIn" type="number" min="0" max="23" name="HourIn"  /></label>
+        <label> Minuto <input id="minIn" type="number" min="0" max="59" name="MinIn" /></label>
+        <h4>Digite a Hora de saída</h4>
+        <label> Hora <input id="hourOut" type="number" min="0" max="23" name="HourOut" /></label>
+        <label> Minuto <input id="minOut" type="number" min="0" max="59" name="MinOut" /></label>
+
+        <h4></h4>
+
+      <button type="button" onClick={handleAddHours}>
+        Cálcular horas
+      </button>
+     <span> </span>
+      <button type="button" onClick={handleReset}>
+        Resetar valores
+      </button>
+
+      <h4>Resulatdo:</h4>
+
+
+      <ul>
+        {calculateHours.map((hours) => (
+          <li key={hours.id}>
+            {hours.valueHourDiurno}:{hours.valueMinDiurno} {hours.DiurnoResult}{" "}
+            e {hours.valueHourNoturno}:{hours.valueMinNoturno}{" "}
+            {hours.NoturnoResult}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
 export default App;
