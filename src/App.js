@@ -7,16 +7,13 @@ import "./App.css";
 function App() {
   const [calculateHours, setCalculateHours] = useState([]);
 
-  
   // Obtem os dados calculados do back-end
   useEffect(() => {
     api.get("api/date").then((response) => {
       setCalculateHours(response.data);
-     // console.log(response);
+      console.log(response);
     });
   }, []);
-
-  console.log(calculateHours)
 
   async function handleAddHours() {
     const valueHourIn = document.getElementById("hourIn").value;
@@ -25,12 +22,7 @@ function App() {
     const valueMinOut = document.getElementById("minOut").value;
 
     // Tratativas de erros
-    if (
-      valueHourIn === "" ||
-      valueMinIn === "" ||
-      valueHourOut === "" ||
-      valueMinOut === ""
-    ) {
+    if ( valueHourIn === "" || valueMinIn === "" || valueHourOut === "" || valueMinOut === "" ) {
       return alert("Todos os campos são obrigatórios!");
     } else if (valueHourIn > 24 || valueHourOut > 24) {
       return alert("Hora de entrada ou saída não pode ser maior que 24hrs");
@@ -51,9 +43,7 @@ function App() {
 
     const project = response.data;
 
-    console.log(project)
-
-    setCalculateHours([project]);
+    setCalculateHours([...calculateHours, project]);
   }
 
   async function handleReset() {
