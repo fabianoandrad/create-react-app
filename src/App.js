@@ -9,7 +9,7 @@ function App() {
 
   // Obtem os dados calculados do back-end
   useEffect(() => {
-    api.get("api/date").then((response) => {
+    api.get("").then((response) => {
       setCalculateHours(response.data);
       console.log(response);
     });
@@ -57,25 +57,11 @@ function App() {
       <Header title="Cálcular Horas" />
 
       <h4>Digite a Hora de entrada</h4>
-      <label>
-        {" "}
-        Hora <input id="hourIn" type="number" min="0" max="23" name="HourIn" />
-      </label>
-      <label>
-        {" "}
-        Minuto <input id="minIn" type="number" min="0" max="59" name="MinIn" />
-      </label>
+      <label> Hora <input id="hourIn" type="number" min="0" max="23" name="HourIn" /></label>
+      <label> Minuto <input id="minIn" type="number" min="0" max="59" name="MinIn" /></label>
       <h4>Digite a Hora de saída</h4>
-      <label>
-        {" "}
-        Hora{" "}
-        <input id="hourOut" type="number" min="0" max="23" name="HourOut" />
-      </label>
-      <label>
-        {" "}
-        Minuto{" "}
-        <input id="minOut" type="number" min="0" max="59" name="MinOut" />
-      </label>
+      <label> Hora<input id="hourOut" type="number" min="0" max="23" name="HourOut" /></label>
+      <label>Minuto<input id="minOut" type="number" min="0" max="59" name="MinOut" /> </label>
 
       <button type="button" onClick={handleAddHours}>
         Cálcular horas
