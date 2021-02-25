@@ -40,7 +40,7 @@ if(valueHourIn === '' || valueMinIn === '' || valueHourOut === '' || valueMinOut
 }
 
     // Envia os dados para o back-end
-    const response = await api.post("projects", {
+    const response = await api.post("api/date", {
       hourIn: valueHourIn,
       minIn: valueMinIn,
 
