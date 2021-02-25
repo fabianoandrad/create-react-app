@@ -9,7 +9,7 @@ function App() {
 
   // Obtem os dados calculados do back-end
   useEffect(() => {
-    api.get("").then((response) => {
+    api.get("api/date").then((response) => {
       setCalculateHours(response.data);
       console.log(response);
     });
@@ -34,12 +34,14 @@ function App() {
 
     // Envia os dados para o back-end
     const response = await api.post("api/date", {
+  
       hourIn: valueHourIn,
       minIn: valueMinIn,
 
       hourOut: valueHourOut,
       minOut: valueMinOut,
     });
+    console.log('passei aqui')
 
     const project = response.data;
 
