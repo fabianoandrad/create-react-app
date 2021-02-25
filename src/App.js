@@ -9,9 +9,9 @@ function App() {
 
   // Obtem os dados calculados do back-end
   useEffect(() => {
-    api.get("projects").then((response) => {
+    api.get("api/date").then((response) => {
       setCalculateHours(response.data);
-      //console.log(response)
+      console.log(response)
     });
   }, []);
   
