@@ -73,7 +73,7 @@ function App() {
         Resetar horas
       </button>
 
-      <h4>Resulatdo:</h4>
+      <h4>Resulatdo: </h4>
 
       <ul>
         <li key={calculateHours.id}>
