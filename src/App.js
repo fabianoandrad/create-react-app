@@ -76,12 +76,16 @@ function App() {
       <h4>Resulatdo: </h4>
 
       <ul>
-        <li key={calculateHours.id}>
-          {calculateHours.valueHourDiurno}:{calculateHours.valueMinDiurno}
-          {calculateHours.DiurnoResult}e {calculateHours.valueHourNoturno}:
-          {calculateHours.valueMinNoturno} {calculateHours.NoturnoResult}
-        </li>
+        {calculateHours.map((hours) => (
+          <li key={hours.id}>
+            {hours.valueHourDiurno}:{hours.valueMinDiurno} {hours.DiurnoResult}
+            e {hours.valueHourNoturno}:{hours.valueMinNoturno}
+            {hours.NoturnoResult}
+          </li>
+        ))}
       </ul>
+
+
     </>
   );
 }
