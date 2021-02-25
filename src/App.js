@@ -5,11 +5,7 @@ import api from "./services/api";
 import "./App.css";
 
 function App() {
-  const [calculateHours, setCalculateHours] = useState([{
-    test1: 0001,
-    test2: 0002,
-    test3: 0003
-  }]);
+  const [calculateHours, setCalculateHours] = useState([]);
 
   // Obtem os dados calculados do back-end
   useEffect(() => {
@@ -52,7 +48,9 @@ function App() {
 
     const project = response.data;
 
-    setCalculateHours([...calculateHours, project]);
+    console.log(project)
+
+    setCalculateHours([project]);
   }
 
   async function handleReset() {
