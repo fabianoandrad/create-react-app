@@ -85,12 +85,12 @@ if(valueHourIn === '' || valueMinIn === '' || valueHourOut === '' || valueMinOut
 
 
       <ul>
-        {calculateHours.map((hours) => (
+       
           <li key={hours.id}>
             {hours.valueHourDiurno}:{hours.valueMinDiurno} {hours.DiurnoResult}
             e {hours.valueHourNoturno}:{hours.valueMinNoturno} {hours.NoturnoResult}
           </li>
-        ))}
+      
       </ul>
     </>
   );
