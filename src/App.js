@@ -78,7 +78,7 @@ if(valueHourIn === '' || valueMinIn === '' || valueHourOut === '' || valueMinOut
       </button>
      <span> </span>
       <button type="button" onClick={handleReset}>
-        Resetar valores
+        Resetar horas
       </button>
 
       <h4>Resulatdo:</h4>
