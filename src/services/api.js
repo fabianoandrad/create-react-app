@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://calculatorbd-com.umbler.net/:8080",
+  baseURL: "https://back-end-proveu.vercel.app/api/date",
 });
 
 export default api;
