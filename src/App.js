@@ -41,7 +41,7 @@ function App() {
       hourOut: valueHourOut,
       minOut: valueMinOut,
     });
-    //console.log(response.data);
+    console.log(response.data);
 
     const project = response.data;
 
