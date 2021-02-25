@@ -41,7 +41,7 @@ function App() {
       hourOut: valueHourOut,
       minOut: valueMinOut,
     });
-    console.log('passei aqui')
+    console.log(response);
 
     const project = response.data;
 
