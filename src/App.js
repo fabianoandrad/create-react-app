@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     api.get("api/date").then((response) => {
       setCalculateHours(response.data);
-      console.log(response);
+      console.log(response.data);
     });
   }, []);
 
