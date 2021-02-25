@@ -7,13 +7,16 @@ import "./App.css";
 function App() {
   const [calculateHours, setCalculateHours] = useState([]);
 
+  
   // Obtem os dados calculados do back-end
   useEffect(() => {
     api.get("api/date").then((response) => {
       setCalculateHours(response.data);
-      console.log(response);
+     // console.log(response);
     });
   }, []);
+
+  console.log(calculateHours)
 
   async function handleAddHours() {
     const valueHourIn = document.getElementById("hourIn").value;
