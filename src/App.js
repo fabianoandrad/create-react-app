@@ -43,7 +43,8 @@ function App() {
 
     const project = response.data;
 
-    setCalculateHours([...calculateHours, project]);
+    //setCalculateHours([...calculateHours, project]);
+    setCalculateHours([project]);
   }
 
   async function handleReset() {
