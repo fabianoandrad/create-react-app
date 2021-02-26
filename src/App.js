@@ -15,7 +15,7 @@ function App() {
     });
   }, []);
 
-   function handleAddHours() {
+  async function handleAddHours() {
     const valueHourIn = document.getElementById("hourIn").value;
     const valueMinIn = document.getElementById("minIn").value;
     const valueHourOut = document.getElementById("hourOut").value;
@@ -33,7 +33,7 @@ function App() {
     }
 
     // Envia os dados para o back-end
-         api.post("api/date", {
+    const response = await api.post("api/date", {
   
       hourIn: valueHourIn,
       minIn: valueMinIn,
@@ -41,9 +41,9 @@ function App() {
       hourOut: valueHourOut,
       minOut: valueMinOut,
     });
-    //console.log(response.data);
+    console.log(response.data);
 
-    //const project = response.data;
+    const project = response.data;
 
     setCalculateHours([...calculateHours, project]);
     //setCalculateHours([project]);
