@@ -43,7 +43,7 @@ function App() {
     });
     console.log(response.data);
 
-    const project = response.data;z
+    const project = response.data;
 
     setCalculateHours([...calculateHours, project]);
     //setCalculateHours([project]);
