@@ -22,7 +22,7 @@ function App() {
     const valueMinOut = document.getElementById("minOut").value;
 
     // Tratativas de erros
-    if (valueHourIn === "" || valueMinIn === "" || valueHourOut === "" || valueMinOut === "") {
+    if ( valueHourIn === "" || valueMinIn === "" || valueHourOut === "" || valueMinOut === "" ) {
       return alert("Todos os campos são obrigatórios!");
     } else if (valueHourIn > 24 || valueHourOut > 24) {
       return alert("Hora de entrada ou saída não pode ser maior que 24hrs");
@@ -33,24 +33,17 @@ function App() {
     }
 
     // Envia os dados para o back-end
-    const response = await api.post("api/date", (req, res) => {
-      const hours = {
-        hourIn: valueHourIn,
-        minIn: valueMinIn,
+    const response = await api.post("api/date", {
+  
+      hourIn: valueHourIn,
+      minIn: valueMinIn,
 
-        hourOut: valueHourOut,
-        minOut: valueMinOut,
-      }
+      hourOut: valueHourOut,
+      minOut: valueMinOut,
+    });
+    console.log(response.data);
 
-      res.status(200).send(hours)
-    }
-    );
-    
-    console.log(response.data); 
-
-    const project = response.data;
-
-
+    const project = response.data;z
 
     setCalculateHours([...calculateHours, project]);
     //setCalculateHours([project]);
