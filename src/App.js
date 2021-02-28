@@ -66,7 +66,7 @@ function App() {
       <label> Hora<input id="hourOut" type="number" min="0" max="23" name="HourOut" /></label>
       <label>Minuto<input id="minOut" type="number" min="0" max="59" name="MinOut" /> </label>
 
-      <button type="submit" onClick={handleAddHours}>
+      <button action="api/date" type="submit">
         Cálcular horas
       </button>
       <span> </span>
