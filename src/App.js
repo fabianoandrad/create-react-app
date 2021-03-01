@@ -51,13 +51,8 @@ function App() {
 
   async function handleReset() {
 
-    
-
-    if(confirm("Deseja realmente apagar as informações de horários?") == true){
-    
       setCalculateHours([]);
       await api.delete("api/date");
-    }
 
   }
 
