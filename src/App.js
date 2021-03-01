@@ -51,7 +51,7 @@ function App() {
 
   async function handleReset() {
 
-    const result = confirm("Deseja realmente apagar as informações de horários?")
+    let result = confirm("Deseja realmente apagar as informações de horários?")
 
     if(result == true)
 
