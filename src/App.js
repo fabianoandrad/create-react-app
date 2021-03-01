@@ -53,10 +53,10 @@ function App() {
 
     const result = confirm("Deseja realmente apagar as informações de horários?")
 
-    if (result == true){
-      setCalculateHours([])
-      await api.post("projects", {del: true});
-    }
+    if(result == true)
+
+    setCalculateHours([]);
+    await api.delete("api/date");
     
   }
 
