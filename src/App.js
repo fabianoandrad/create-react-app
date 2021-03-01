@@ -50,8 +50,14 @@ function App() {
   }
 
   async function handleReset() {
-    setCalculateHours([]);
-    await api.delete("api/date");
+
+    const result = confirm("Deseja realmente apagar as informações de horários?")
+
+    if (result == true){
+      setCalculateHours([])
+      await api.post("projects", {del: true});
+    }
+    
   }
 
   return (
