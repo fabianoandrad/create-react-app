@@ -53,11 +53,11 @@ function App() {
 
     let result = confirm("Deseja realmente apagar as informações de horários?")
 
-    if(result == true)
+    if(result == true){
+      setCalculateHours([]);
+      await api.delete("api/date");
+    }
 
-    setCalculateHours([]);
-    await api.delete("api/date");
-    
   }
 
   return (
