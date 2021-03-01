@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import api from "./services/api";
-//import "./App.css";
 
 function App() {
   const [calculateHours, setCalculateHours] = useState([]);
