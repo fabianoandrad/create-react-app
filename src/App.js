@@ -58,7 +58,7 @@ function App() {
 
   return (
     <>
-      <Header title="Cálcular Horas" />
+      <Header title="Calcular Horas" />
 
      <div class="card-panel deep-purple lighten-5">
      <h5>Digite a Hora de entrada</h5>
@@ -72,7 +72,7 @@ function App() {
       
 
       <button class="btn waves-effect waves-light" type="button" onClick={handleAddHours}>
-        Cálcular horas <i class="material-icons right">calculate</i>
+        Calcular horas <i class="material-icons right">calculate</i>
       </button>
      <span> </span>
       <button class="btn waves-effect waves-light" type="button" onClick={handleReset}>
@@ -80,7 +80,7 @@ function App() {
       </button>
      </div>
 
-<h4>Resulatdo:</h4>
+<h4>Resultado:</h4>
 <div class="card-panel deep-purple lighten-5">
       <ul>
         {calculateHours.map((hours) => (
