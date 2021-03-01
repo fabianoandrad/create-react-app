@@ -81,9 +81,9 @@ function App() {
 
 <h4>Resultado:</h4>
 <div class="card-panel deep-purple lighten-5">
-      <ul>
+      <ul class="collection with-header">
         {calculateHours.map((hours) => (
-          <li key={hours.id}>
+          <li class="collection-item" key={hours.id}>
             {hours.valueHourDiurno}:{hours.valueMinDiurno} {hours.DiurnoResult} e {hours.valueHourNoturno}:{hours.valueMinNoturno} {hours.NoturnoResult}
           </li>
         ))}
