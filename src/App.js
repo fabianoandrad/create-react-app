@@ -69,7 +69,7 @@ function App() {
         <label> Hora <input id="hourOut" type="number" min="0" max="23" name="HourOut" /></label>
         <label> Minuto <input id="minOut" type="number" min="0" max="59" name="MinOut" /></label>
 
-        <h4></h4>
+      
 
       <button class="btn waves-effect waves-light" type="button" onClick={handleAddHours}>
         Cálcular horas <i class="material-icons right">calculate</i>
