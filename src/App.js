@@ -51,7 +51,7 @@ function App() {
 
   async function handleReset() {
     setCalculateHours([]);
-    await api.post("projects", { del: true });
+    await api.delete("api/date", { del: true });
   }
 
   return (
