@@ -60,31 +60,38 @@ function App() {
     <>
       <Header title="Cálcular Horas" />
 
-      <h4>Digite a Hora de entrada</h4>
-      <label> Hora <input id="hourIn" type="number" min="0" max="23" name="HourIn" /></label>
-      <label> Minuto <input id="minIn" type="number" min="0" max="59" name="MinIn" /></label>
-      <h4>Digite a Hora de saída</h4>
-      <label> Hora<input id="hourOut" type="number" min="0" max="23" name="HourOut" /></label>
-      <label>Minuto<input id="minOut" type="number" min="0" max="59" name="MinOut" /> </label>
+     <div class="card-panel deep-purple lighten-5">
+     <h4>Digite a Hora de entrada</h4>
+        
+        <label> Hora <input id="hourIn" type="number" min="0" max="23" name="HourIn"  /></label>
+        <label> Minuto <input id="minIn" type="number" min="0" max="59" name="MinIn" /></label>
+        <h4>Digite a Hora de saída</h4>
+        <label> Hora <input id="hourOut" type="number" min="0" max="23" name="HourOut" /></label>
+        <label> Minuto <input id="minOut" type="number" min="0" max="59" name="MinOut" /></label>
 
-      <button type="button" onClick={handleAddHours}>
-        Cálcular horas
+        <h4></h4>
+
+      <button class="btn waves-effect waves-light" type="button" onClick={handleAddHours}>
+        Cálcular horas <i class="material-icons right">calculate</i>
       </button>
-      <span> </span>
-      <button type="button" onClick={handleReset}>
-        Resetar horas
+     <span> </span>
+      <button class="btn waves-effect waves-light" type="button" onClick={handleReset}>
+        Resetar valores <i class="material-icons right">restart_alt</i>
       </button>
+     </div>
 
-      <h4>Resulatdo: </h4>
-
+<div class="card-panel deep-purple lighten-5">
+<h4>Resulatdo:</h4>
       <ul>
         {calculateHours.map((hours) => (
           <li key={hours.id}>
-            {hours.valueHourDiurno}:{hours.valueMinDiurno} {hours.DiurnoResult} e {hours.valueHourNoturno}:{hours.valueMinNoturno} {hours.NoturnoResult}
+            {hours.valueHourDiurno}:{hours.valueMinDiurno} {hours.DiurnoResult}
+            e {hours.valueHourNoturno}:{hours.valueMinNoturno}
+            {hours.NoturnoResult}
           </li>
         ))}
       </ul>
-
+</div>
 
     </>
   );
