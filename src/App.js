@@ -61,11 +61,11 @@ function App() {
       <Header title="Cálcular Horas" />
 
      <div class="card-panel deep-purple lighten-5">
-     <h4>Digite a Hora de entrada</h4>
+     <h5>Digite a Hora de entrada</h5>
         
         <label> Hora <input id="hourIn" type="number" min="0" max="23" name="HourIn"  /></label>
         <label> Minuto <input id="minIn" type="number" min="0" max="59" name="MinIn" /></label>
-        <h4>Digite a Hora de saída</h4>
+        <h5>Digite a Hora de saída</h5>
         <label> Hora <input id="hourOut" type="number" min="0" max="23" name="HourOut" /></label>
         <label> Minuto <input id="minOut" type="number" min="0" max="59" name="MinOut" /></label>
 
@@ -85,9 +85,7 @@ function App() {
       <ul>
         {calculateHours.map((hours) => (
           <li key={hours.id}>
-            {hours.valueHourDiurno}:{hours.valueMinDiurno} {hours.DiurnoResult}
-            e {hours.valueHourNoturno}:{hours.valueMinNoturno}
-            {hours.NoturnoResult}
+            {hours.valueHourDiurno}:{hours.valueMinDiurno} {hours.DiurnoResult} e {hours.valueHourNoturno}:{hours.valueMinNoturno} {hours.NoturnoResult}
           </li>
         ))}
       </ul>
